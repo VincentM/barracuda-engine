@@ -23,7 +23,7 @@ class TabasseSystem(System):
                         target_status.health = 0
                         print("%s est mort" % target_status.name)
                 elif behavior._action == BehaviorActions.heal:
-                    target_status.health += 5
+                    target_status.health += 7
                     if target_status.health > 100:
                         target_status.health = 100
                 behavior.reset()

@@ -15,7 +15,7 @@ class RenderSystem(System):
                 entity, StatusComponent)
             ai = self.entity_manager.component_for_entity(
                 entity, AIComponent) or 'Idle'
-            print("[%s]%s (%s%%) - %s" % (status.team, status.name,
-                                          status.health, ai.objective))
+            print("[%s]%s (%s%%)" % (status.team, status.name,
+                                          status.health))
         print()
         self._round += 1
