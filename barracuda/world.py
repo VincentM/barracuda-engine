@@ -1,6 +1,8 @@
 import ecs
 import pickle
 
+from barracuda.systems import AISystem, RenderSystem, TabasseSystem
+
 
 class World:
 
@@ -8,9 +10,9 @@ class World:
         self.entity_manager = ecs.EntityManager()
         self.system_manager = ecs.SystemManager(self.entity_manager)
 
-        # Create&register systems here
-        # my_system = sysystem_managerstems.MySystem(self)
-        # self.system_manager.add_system(my_system)
+        self.system_manager.add_system(AISystem())
+        self.system_manager.add_system(RenderSystem())
+        self.system_manager.add_system(TabasseSystem())
 
     def step(self, dt):
         self.system_manager.update(dt)
