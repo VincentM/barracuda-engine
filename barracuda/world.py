@@ -8,8 +8,10 @@ class World:
 
     def __init__(self):
         self.entity_manager = ecs.EntityManager()
-        self.system_manager = ecs.SystemManager(self.entity_manager)
+        self._build_system_manager()
 
+    def _build_system_manager(self):
+        self.system_manager = ecs.SystemManager(self.entity_manager)
         self.system_manager.add_system(AISystem())
         self.system_manager.add_system(RenderSystem())
         self.system_manager.add_system(TabasseSystem())
@@ -24,3 +26,4 @@ class World:
     def load(self, name='save.gf'):
         with open(name, 'rb') as fd:
             self.entity_manager = pickle.load(fd)
+        self._build_system_manager()
